@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  html {
+    @apply text-base md:text-basePc;
+
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+      appearance: none;
+    }
+  }
+
+  body {
+    @apply antialiased font-medium text-black;
+
+    text-size-adjust: 100%;
+    text-rendering: auto;
+  }
+
+  picture {
+    @apply block;
+  }
+
+  img {
+    @apply w-full;
+    max-width: none;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}
