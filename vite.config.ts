@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 // import path from 'path';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import svgLoader from 'vite-svg-loader';
+import Pages from 'vite-plugin-pages';
+import Layouts from 'vite-plugin-vue-layouts';
 import AutoImport from 'unplugin-auto-import/vite';
 
 // https://vitejs.dev/config/
@@ -32,6 +35,7 @@ export default defineConfig({
         }
       }
     }),
+    tsconfigPaths(),
     svgLoader({
       svgoConfig: {
         plugins: [
@@ -43,9 +47,11 @@ export default defineConfig({
         ]
       }
     }),
+    Pages(),
+    Layouts(),
     AutoImport({
       imports: ['vue', 'vue-router', '@vueuse/core', '@vueuse/head'],
-      dts: 'auto-imports.d.ts'
+      dts: 'src/auto-imports.d.ts'
     })
   ],
   ssgOptions: {
